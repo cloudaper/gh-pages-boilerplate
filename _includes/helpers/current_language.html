@@ -1,0 +1,16 @@
+{%- capture language_code %}
+
+    {% comment %} Page language is always preferred {% endcomment %}
+    {% if page.language %}
+      {{ page.language }}
+    {% comment %} Check if site is multilanguage (language variable is an array) and fallback to default language {% endcomment %}
+    {% elsif site.language.first %}
+      {{ site.language[0] }}
+    {% else %}
+      {{ site.language }}
+    {% endif %}
+    
+{% endcapture -%}
+
+{% comment %} Remove whitespace, newlines and render language code {% endcomment %}
+{{- language_code | strip | strip_newlines -}}

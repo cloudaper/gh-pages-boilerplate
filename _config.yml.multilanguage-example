@@ -4,7 +4,9 @@ description: >- # this ignores newlines until the next definition
   Jekyll boilerplate for GitHub Pages (no plugins) does the every-time-new-static-site
   groundwork for you. Featuring multilanguage and shared codebase for multiple connected 
   sites.
-language: en # ISO 639-1 language code
+language: # ISO 639-1 language code
+  - en # first language in the list is default
+  - cs
 
 # HTML compression using jekyll-compress-html layout settings (see jch.penibelst.de)
 compress_html:
