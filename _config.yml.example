@@ -1,5 +1,14 @@
+# General settings
 title: GitHub Pages boilerplate
 description: >- # this ignores newlines until the next definition
   Jekyll boilerplate for GitHub Pages (no plugins) does the every-time-new-static-site
   groundwork for you. Featuring multilanguage and shared codebase for multiple connected 
   sites.
+
+# HTML compression using jekyll-compress-html layout settings (see jch.penibelst.de)
+compress_html:
+  clippings: all
+  ignore:
+    envs:
+      - production # remove this line to enable HTML compression
+      - development
