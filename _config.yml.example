@@ -26,3 +26,7 @@ compress_html:
     envs:
       - production # remove this line to enable HTML compression
       - development
+
+# Don't include original Markdown files in the output
+optional_front_matter:
+  remove_originals: true

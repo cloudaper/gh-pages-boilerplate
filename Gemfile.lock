@@ -244,6 +244,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages (>= 202)
+  jekyll-optional-front-matter
 
 BUNDLED WITH
    2.0.1
