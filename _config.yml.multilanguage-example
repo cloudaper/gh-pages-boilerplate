@@ -14,6 +14,11 @@ language: # ISO 639-1 language code
   - en # first language in the list is default
   - cs
 
+# Page titles
+page_title:
+  append: true # site title will be appended after page title (if set)
+  delimiter: '—' # optional delimiter, | (pipe) is default
+
 # HTML compression using jekyll-compress-html layout settings (see jch.penibelst.de)
 compress_html:
   clippings: all

@@ -21,8 +21,25 @@
   {% comment %} Remove Markdown and HTML tags {% endcomment %}
   {% assign site_title = site_title | strip | strip_newlines | markdownify | strip_html | strip | strip_newlines %}
 
+  {% comment %} Assemble page title {% endcomment %}
+  {% if page.title_tag %}
+    {% assign page_title = page.title_tag %}
+  {% else %}
+    {% assign page_title = page.title %}
+  {% endif %}
+  {% comment %} Remove Markdown and HTML tags {% endcomment %}
+  {% assign page_title = page_title | strip | strip_newlines | markdownify | strip_html | strip | strip_newlines %}
+
   {% comment %} Render title {% endcomment %}
-  {{ site_title }}
+  {% if page_title != '' %}
+    {% if site.page_title.append %}
+    {{ page_title }} {{ site.page_title.delimiter | default: '|' }} {{ site_title }}
+    {% else %}
+      {{ page_title }}
+    {% endif %}
+  {% else %}
+    {{ site_title }}
+  {% endif %}
 
 {% endcapture -%}
 
