@@ -1,0 +1,19 @@
+{% comment %} Check which favicons are available {% endcomment %}
+{% for file in site.static_files %}
+  {% comment %} .ico favicon should always be in the root {% endcomment %}
+  {% if file.path == '/favicon.ico' %}
+    <link rel="icon" href="{{ 'favicon.ico' | append: '?v=' | append: site.github.build_revision | relative_url }}">
+  {% elsif file.path == '/assets/global/favicons/favicon.ico' %}
+    <link rel="icon" href="{{ 'assets/global/favicons/favicon.ico' | append: '?v=' | append: site.github.build_revision | relative_url }}">
+  {% elsif file.path == '/assets/global/favicons/16px.png' %}
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ 'assets/global/favicons/16px.png' | append: '?v=' | append: site.github.build_revision | relative_url }}">
+  {% elsif file.path == '/assets/global/favicons/32px.png' %}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/global/favicons/32px.png' | append: '?v=' | append: site.github.build_revision | relative_url }}">
+  {% elsif file.path == '/assets/global/favicons/48px.png' %}
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ 'assets/global/favicons/48px.png' | append: '?v=' | append: site.github.build_revision | relative_url }}">
+  {% elsif file.path == '/assets/global/favicons/96px.png' %}
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ 'assets/global/favicons/96px.png' | append: '?v=' | append: site.github.build_revision | relative_url }}">
+  {% elsif file.path == '/assets/global/favicons/192px.png' %}
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ 'assets/global/favicons/192px.png' | append: '?v=' | append: site.github.build_revision | relative_url }}">
+  {% endif %}
+{% endfor %}
