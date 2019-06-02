@@ -2,10 +2,14 @@
 title:
   en: '**GitHub Pages** boilerplate' # feel free to use Markdown
   cs: 'Boilerplate pro **GitHub Pages**'
-description: >- # this ignores newlines until the next definition
-  Jekyll boilerplate for GitHub Pages (no plugins) does the every-time-new-static-site
-  groundwork for you. Featuring multilanguage and shared codebase for multiple connected 
-  sites.
+description: # feel free to use Markdown
+  en: >- # this ignores newlines until the next definition
+    Jekyll boilerplate for [GitHub Pages](https://pages.github.com) (no plugins) does the every-time-new-static-site
+    groundwork for you. Featuring multilanguage and shared codebase for multiple connected 
+    sites.
+  cs: >-
+    Základy pro spuštění statické stránky generované pomocí Jekyllu a hostované
+    na [GitHub Pages](https://pages.github.com). Poradí si i s multijazyčností a sdílením codebase pro víc stránek.
 language: # ISO 639-1 language code
   - en # first language in the list is default
   - cs

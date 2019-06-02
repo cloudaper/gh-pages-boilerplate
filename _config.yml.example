@@ -1,7 +1,7 @@
 # General settings
 title: '**GitHub Pages** boilerplate' # feel free to use Markdown
 description: >- # this ignores newlines until the next definition
-  Jekyll boilerplate for GitHub Pages (no plugins) does the every-time-new-static-site
+  Jekyll boilerplate for [GitHub Pages](https://pages.github.com) (no plugins) does the every-time-new-static-site
   groundwork for you. Featuring multilanguage and shared codebase for multiple connected 
   sites.
 language: en # ISO 639-1 language code
