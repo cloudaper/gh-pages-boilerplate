@@ -1,0 +1,30 @@
+{%- capture title %}
+  
+  {% comment %} Determine correct language {% endcomment %}
+  {% capture language %}
+    {% include helpers/current_language.html %}
+  {% endcapture %}
+  {% assign language = language | strip | strip_newlines %}
+
+  {% comment %} Assemble site title {% endcomment %}
+  {% capture site_title %}
+    {% if site.title[language] %}
+      {{ site.title[language] }}
+    {% comment %} Check if site is multilanguage (title variable is an array) and fallback to default language {% endcomment %}
+    {% elsif site.title.first %}
+      {% assign default_language = site.language[0] %}
+      {{ site.title[default_language] }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  {% endcapture %}
+  {% comment %} Remove Markdown and HTML tags {% endcomment %}
+  {% assign site_title = site_title | strip | strip_newlines | markdownify | strip_html | strip | strip_newlines %}
+
+  {% comment %} Render title {% endcomment %}
+  {{ site_title }}
+
+{% endcapture -%}
+
+{% comment %} Remove whitespace, newlines, escape special characters and render title {% endcomment %}
+{{- title | strip | strip_newlines | escape -}}
