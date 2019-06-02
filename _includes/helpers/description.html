@@ -1,20 +1,27 @@
 {%- capture description %}
   
-  {% comment %} Determine correct language {% endcomment %}
-  {% capture language %}
-    {% include helpers/current_language.html %}
-  {% endcapture %}
-  {% assign language = language | strip | strip_newlines %}
-
-  {% comment %} Assemble description {% endcomment %}
-  {% if site.description[language] %}
-    {{ site.description[language] }}
-  {% comment %} Check if site is multilanguage (title variable is an array) and fallback to default language {% endcomment %}
-  {% elsif site.description.first %}
-    {% assign default_language = site.language[0] %}
-    {{ site.description[default_language] }}
+  {% comment %} Always prefer page description {% endcomment %}
+  {% if page.description %}
+    {{ page.description }}
   {% else %}
-    {{ site.description }}
+
+    {% comment %} Determine correct language {% endcomment %}
+    {% capture language %}
+      {% include helpers/current_language.html %}
+    {% endcapture %}
+    {% assign language = language | strip | strip_newlines %}
+
+    {% comment %} Assemble description {% endcomment %}
+    {% if site.description[language] %}
+      {{ site.description[language] }}
+    {% comment %} Check if site is multilanguage (title variable is an array) and fallback to default language {% endcomment %}
+    {% elsif site.description.first %}
+      {% assign default_language = site.language[0] %}
+      {{ site.description[default_language] }}
+    {% else %}
+      {{ site.description }}
+    {% endif %}
+  
   {% endif %}
 
 {% endcapture -%}
