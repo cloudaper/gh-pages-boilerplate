@@ -12,6 +12,9 @@ page_title:
   append: true # site title will be appended after page title (if set)
   delimiter: '—' # optional delimiter, | (pipe) is default
 
+# Google Tag Manager
+gtm_container_id: GTM-O3A98T7
+
 # HTML compression using jekyll-compress-html layout settings (see jch.penibelst.de)
 compress_html:
   clippings: all

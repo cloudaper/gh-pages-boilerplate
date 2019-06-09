@@ -16,6 +16,7 @@ layout: compress
       style="{{ body_inline_styles | join: ' ' | strip }}"
     {% endif %}
   >
+    {% include layouts/global/_google_tag_manager.html %}
     {{ content }}
   </body>
 </html>
