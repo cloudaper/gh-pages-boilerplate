@@ -1,0 +1,13 @@
+---
+layout: null
+permalink: robots.txt
+---
+User-agent: *
+{% include helpers/production.html -%}
+{%- if production -%}
+Disallow:
+{%- else -%}
+Disallow: /
+{%- endif %}
+
+Sitemap: {{ 'sitemap.xml' | absolute_url }}
