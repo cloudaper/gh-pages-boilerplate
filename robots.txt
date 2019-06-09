@@ -5,7 +5,73 @@ permalink: robots.txt
 User-agent: *
 {% include helpers/production.html -%}
 {%- if production -%}
+
+  {%- capture robots -%}
+
+    {% comment %} All disallowed pages {% endcomment %}
+    {% assign pages = site.pages | where: 'sitemap', false %}
+
+    {% comment %} All disallowed posts and collections {% endcomment %}
+    {% assign collections = site.documents | where: 'sitemap', false %}
+
+    {% comment %} List of all collections {% endcomment %}
+    {% capture collections_list -%}
+    {%- for collection in site.collections -%}
+    {{ collection.relative_directory }}
+    {% endfor -%}
+    {%- endcapture %}
+    {% assign collections_list = collections_list | newline_to_br | strip_newlines | split: '<br />' %}
+
+    {% comment %} Check for of all disallowed paths in defaults {% endcomment %}
+    {% capture paths -%}
+
+      {%- for item in site.defaults -%}
+
+        {%- if item.values.sitemap == false -%}
+
+          {%- comment %} Extract defaults item root path {% endcomment -%}
+          {%- assign item_root = item.scope.path | split: '/' -%}
+          {%- assign item_root = item_root[0] -%}
+
+          {%- comment %} Continue only unless the path is not a collection {% endcomment -%}
+          {%- unless collections_list contains item_root -%}
+            {{- item.scope.path | replace: '**', '*' | replace: '*/*', '*' | prepend: '/' }}
+{% endunless -%}
+
+        {%- endif -%}
+
+      {%- endfor -%}
+
+    {%- endcapture %}
+    {% assign paths = paths | newline_to_br | strip_newlines | split: '<br />' %}
+
+    {% comment %} Assemble complete list of disallowed URLs {% endcomment %}
+    {% capture complete_list -%}
+
+    {%- for page in pages -%}
+    {{ page.url }}
+{% endfor -%}
+
+    {%- for collection in collections -%}
+    {{ collection.url }}
+{% endfor -%}
+
+    {%- for path in paths -%}
+    {{ path }}
+{% endfor -%}
+
+    {%- endcapture %}
+    {% assign complete_list = complete_list | newline_to_br | strip_newlines | split: '<br />' %}
+
+  {% endcapture -%}
+
+{%- if complete_list.size != 0 -%}
+{%- for item in complete_list -%}
+Disallow: {{ item }}
+{% endfor -%}
+{%- else -%}
 Disallow:
+{%- endif -%}
 {%- else -%}
 Disallow: /
 {%- endif %}
