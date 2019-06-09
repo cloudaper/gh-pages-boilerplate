@@ -1,0 +1,8 @@
+  
+{%- if jekyll.environment != 'production' -%}
+  {%- assign production = false -%}
+{%- elsif site.environment and site.environment != 'production' -%}
+  {%- assign production = false -%}
+{%- else -%}
+  {%- assign production = true -%}
+{%- endif -%}

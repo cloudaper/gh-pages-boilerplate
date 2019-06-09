@@ -5,6 +5,7 @@ description: >- # this ignores newlines until the next definition
   groundwork for you. Featuring multilanguage and shared codebase for multiple connected 
   sites.
 language: en # ISO 639-1 language code
+environment: production # if not production, all URLs will be disallowed for crawling
 
 # Page titles
 page_title:

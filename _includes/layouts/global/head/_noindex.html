@@ -1,0 +1,4 @@
+{% include helpers/production.html %}
+{% if production != true or page.private %}
+<meta name="robots" content="noindex">
+{% endif %}
