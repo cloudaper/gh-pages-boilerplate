@@ -17,3 +17,20 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ 'assets/global/favicons/192px.png' | append: '?v=' | append: site.github.build_revision | relative_url }}">
   {% endif %}
 {% endfor %}
+
+{% comment %} Other icons from RealFaviconGenerator {% endcomment %}
+
+{% if site.real_favicon_generator %}
+
+  {% assign favicons_path = 'assets/global/favicons/' | relative_url %}
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'apple-touch-icon.png' | prepend: favicons_path | append: '?v=' | append: site.github.build_revision }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-32x32.png' | prepend: favicons_path | append: '?v=' | append: site.github.build_revision }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ 'favicon-16x16.png' | prepend: favicons_path | append: '?v=' | append: site.github.build_revision }}">
+  <link rel="mask-icon" href="{{ 'safari-pinned-tab.svg' | prepend: favicons_path | append: '?v=' | append: site.github.build_revision }}" color="{{ site.color | default: '#ffffff' }}">
+  <link rel="manifest" href="{{ 'site.webmanifest' | prepend: favicons_path | append: '?v=' | append: site.github.build_revision }}">
+  <meta name="msapplication-TileColor" content="{{ site.color | default: '#ffffff' }}">
+  <meta name="msapplication-config" content="{{ 'browserconfig.xml' | prepend: favicons_path | append: '?v=' | append: site.github.build_revision }}">
+  <meta name="theme-color" content="{{ site.color | default: '#ffffff' }}">
+
+{% endif %}

@@ -1,0 +1,19 @@
+{%- assign favicons_path = 'assets/global/favicons/' | relative_url -%}
+{
+  "name": "{% include helpers/title.html %}",
+  "icons": [
+    {
+      "src": "{{ 'android-chrome-192x192.png' | prepend: favicons_path }}",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "{{ 'android-chrome-512x512.png' | prepend: favicons_path }}",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "{{ site.color | default: '#ffffff' }}",
+  "background_color": "{{ site.color | default: '#ffffff' }}",
+  "display": "standalone"
+}
