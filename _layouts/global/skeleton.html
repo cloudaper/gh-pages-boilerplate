@@ -6,7 +6,16 @@ layout: compress
   <head>
     {% include layouts/global/head/default.html %}
   </head>
-  <body>
+  <body
+    {% assign body_classes = page.body_classes | default: layout.body_classes %}
+    {% if body_classes %}
+      class="{{ body_classes | join: ' ' | strip }}"
+    {% endif %}
+    {% assign body_inline_styles = page.body_inline_styles | default: layout.body_inline_styles %}
+    {% if body_inline_styles %}
+      style="{{ body_inline_styles | join: ' ' | strip }}"
+    {% endif %}
+  >
     {{ content }}
   </body>
 </html>
