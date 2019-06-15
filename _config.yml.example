@@ -15,6 +15,9 @@ page_title:
 # Google Tag Manager
 gtm_container_id: GTM-O3A98T7
 
+# Ensure we're using kramdown Markdown engine (the only supported by GitHub Pages)
+markdown: kramdown
+
 # HTML compression using jekyll-compress-html layout settings (see jch.penibelst.de)
 compress_html:
   clippings: all
