@@ -14,6 +14,7 @@ language: # ISO 639-1 language code
   - en # first language in the list is default
   - cs
 environment: production # if not production, all URLs will be disallowed for crawling
+permalink: pretty # use pretty URLs (without .html)
 
 # Page titles
 page_title:
