@@ -1,0 +1,29 @@
+{% capture merge_urls %}
+  {% assign pre = '' | split: '' %}
+
+  {% if page.pre.first %}
+    {% assign pre = pre | concat: page.pre %}
+  {% endif %}
+
+  {% if layout.pre.first %}
+    {% assign pre = pre | concat: layout.pre %}
+  {% endif %}
+
+{% endcapture %}
+
+{% if pre.first %}
+  {% for item in pre %}
+    {% if item.type == 'preconnect' %}
+      <link href="{{ item.url }}" rel="preconnect">
+      <link href="{{ item.url }}" rel="dns-prefetch">
+    {% elsif item.type == 'prefetch' %}
+      <link href="{{ item.url }}" rel="prefetch">
+    {% elsif item.type == 'prerender' %}
+      <link href="{{ item.url }}" rel="prerender">
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% capture cleanup %}
+  {% assign pre = nil %}
+{% endcapture %}
