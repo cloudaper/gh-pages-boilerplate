@@ -20,6 +20,9 @@ gtm_container_id: GTM-O3A98T7
 markdown: kramdown
 
 # HTML compression using jekyll-compress-html layout settings (see jch.penibelst.de)
+# Per site CSS
+css: false # set to true to use [site name].scss file in addition to global.scss
+
 compress_html:
   clippings: all
   ignore:

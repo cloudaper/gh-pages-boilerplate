@@ -1,0 +1,5 @@
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+<link rel="stylesheet" href="{{ '/css/global.css?v=' | append: site.github.build_revision | relative_url }}">
+{% if site.css %}
+  <link rel="stylesheet" href="{{ site.name | prepend: '/css/' | append: '.css?v=' | append: site.github.build_revision | relative_url }}">
+{% endif %}
