@@ -1,0 +1,23 @@
+{% if site.favicon %}
+  {% capture favicon %}
+    {% if site.favicon.unique %}
+      {% assign favicon_path = site.name | prepend: '/assets/' | append: '/favicons/' %}
+    {% endif %}
+  {% endcapture %}
+  <link rel="shortcut icon" href="{{ favicon_path | append: 'favicon.ico' | relative_url }}">
+  {% if site.favicon.realfavicongenerator %}
+    {% capture favicon %}
+      {% unless favicon_path %}
+        {% assign favicon_path = '/assets/global/favicons/' %}
+      {% endunless %}
+    {% endcapture %}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ favicon_path | append: 'favicon-32x32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ favicon_path | append: 'favicon-16x16.png' | relative_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ favicon_path | append: 'apple-touch-icon.png' | relative_url }}">
+    <link rel="mask-icon" href="{{ favicon_path | append: 'safari-pinned-tab.svg' | relative_url }}" color="{{ site.favicon.color }}">
+    <meta name="theme-color" content="{{ site.favicon.color }}">
+    <link rel="manifest" href="{{ '/assets/global/favicons/manifest.json' | relative_url }}">
+    <meta name="msapplication-TileColor" content="{{ site.favicon.color }}">
+    <meta name="msapplication-config" content="{{ '/assets/global/favicons/browserconfig.xml' | relative_url }}">
+  {% endif %}
+{% endif %}

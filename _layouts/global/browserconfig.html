@@ -1,0 +1,19 @@
+{%- capture favicon %}
+  {% if site.favicon.unique %}
+    {% assign favicon_path = site.name | prepend: '/assets/' | append: '/favicons/' %}
+  {% else %}
+    {% assign favicon_path = '/assets/global/favicons/' %}
+  {% endif %}
+{% endcapture -%}
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="{{ favicon_path | append: 'mstile-70x70.png' | relative_url }}"/>
+      <square150x150logo src="{{ favicon_path | append: 'mstile-150x150.png' | relative_url }}"/>
+      <square310x310logo src="{{ favicon_path | append: 'mstile-310x310.png' | relative_url }}"/>
+      <wide310x150logo src="{{ favicon_path | append: 'mstile-310x150.png' | relative_url }}"/>
+      <TileColor>{{ site.favicon.color }}</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>

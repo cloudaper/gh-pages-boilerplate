@@ -1,0 +1,13 @@
+<meta property="og:title" content="{% include global/head/_title.html %}">
+<meta property="og:description" content="{% include global/head/_description.html %}">
+{% if site.social.image %}
+  <meta property="og:image" content="{{ site.url }}{{ page.image | default: site.social.image | relative_url }}">
+{% endif %}
+  <meta property="og:url" content="{{ site.url }}{{ page.url | relative_url }}">
+{% if site.social.facebook_app_id %}
+  <meta property="fb:app_id" content="{{ site.social.facebook_app_id }}">
+{% endif %}
+  <meta name="twitter:card" content="summary">
+{% if site.social.twitter %}
+  <meta name="twitter:site" content="{{ site.social.twitter }}">
+{% endif %}
