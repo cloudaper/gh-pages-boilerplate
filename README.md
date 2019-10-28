@@ -130,7 +130,7 @@ pre:
 
 ## Updating
 
-If you want to update to the latest GitHub Pages Boilerplate, you can simply pull latest master from this repository and merge it to your code.
+If you want to update to latest GitHub Pages Boilerplate, you can simply pull latest master from this repository and merge it to your code.
 
 The following commands will try to merge all changes within one commit, but you will probably have to sort out some conflicts:
 
